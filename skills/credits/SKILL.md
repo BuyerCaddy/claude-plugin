@@ -33,8 +33,8 @@ Use the connected BuyerCaddy MCP tools. Identify their exact names from the curr
 
 ## Examples
 
-- "Сколько у меня осталось кредитов?" → `GetCreditsBalance({})`.
-- "Покажи расход за сентябрь 2026 года" → `GetCreditsReport({"from":"2026-09-01","to":"2026-09-30"})`; note hourly refresh.
-- "Расход с 1 октября 2026 года" → `GetCreditsReport({"from":"2026-10-01"})`.
-- "Расход за всё время" → `GetCreditsReport({})`.
-- "Покажи баланс и расход за сентябрь 2026" → balance `{}` plus the September report; identify the balance as current, not the balance at September's end.
+- "How many credits do I have left?" → `GetCreditsBalance({})`.
+- "Show my credit usage for September 2026" → `GetCreditsReport({"from":"2026-09-01","to":"2026-09-30"})`; note hourly refresh.
+- "Show my credit usage since October 1, 2026" → `GetCreditsReport({"from":"2026-10-01"})`.
+- "Show my all-time credit usage" → `GetCreditsReport({})`.
+- "Show my balance and credit usage for September 2026" → balance `{}` plus the September report; identify the balance as current, not the balance at September's end.

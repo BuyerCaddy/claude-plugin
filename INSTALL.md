@@ -1,27 +1,49 @@
-# BuyerCaddy 0.5.0 for Claude
+# Install BuyerCaddy for Claude
 
-1. In Claude, open Customize / Settings > Plugins > Add > Upload plugin.
-2. Upload `buyercaddy-claude-oauth-0.5.0.zip`.
-3. Open the installed plugin's Connectors tab and connect BuyerCaddy.
+Current version: **0.5.0**. This guide covers Claude chat on the web and in Claude Desktop with the hosted OAuth connector.
+
+## Before you start
+
+- Confirm your Claude account has access to Plugins and remote connectors. On Team or Enterprise, an organization Owner may need to add the connector first.
+- Have your own BuyerCaddy API key ready. If needed, [create a BuyerCaddy account](https://buyercaddy.com/sign-up/?plan=claude).
+- Build the installation ZIP using the [README build instructions](README.md#1-build-the-installation-zip). No local server or Node.js is needed.
+
+## Install and authorize
+
+1. In Claude, open **Customize > Plugins > Add > Upload plugin**.
+2. Upload `dist/buyercaddy-claude-oauth-0.5.0.zip`.
+3. Open the installed **BuyerCaddy** plugin's **Connectors** tab and add or connect BuyerCaddy.
 4. In the **Connect to BuyerCaddy MCP** form, enter your own API key and select **Connect**.
-5. Return to the chat and ask: "Find the Salesforce vendor using BuyerCaddy."
+5. Return to Claude and confirm that BuyerCaddy is connected.
+6. Start a new chat and ask: **Find the Salesforce vendor using BuyerCaddy.** Confirm that Claude calls a BuyerCaddy tool and returns its result.
 
-On Team / Enterprise, an organization owner may need to add the connector first. Each user connects with their own key. Enter your key only in the connection form, never in the chat or ZIP. You do not need to enter an OAuth Client ID or Client Secret.
+Enter the key only in the connection form, never in the chat or plugin files. You do not need an OAuth Client ID or Client Secret. The upload and connection steps are documented by [Anthropic](https://claude.com/docs/plugins/build).
 
-Connector URL: https://buyercaddy-oauth-gateway-972736928837.us-central1.run.app/mcp
+The connector URL is:
 
-An older connection directly to mcp.salescaddy.ai does not use this OAuth gateway. Select the new connection when checking the plugin. This archive is intended for Claude chat with a remote connector; local Claude Code authorization is not enabled in this gateway version.
+```text
+https://buyercaddy-oauth-gateway-972736928837.us-central1.run.app/mcp
+```
 
-## What's new in 0.5.0
+If an older connection points directly to mcp.salescaddy.ai, select the new OAuth connection. This gateway release does not support local Claude Code OAuth callbacks.
 
-Added instructions for checking the current credit balance (`GetCreditsBalance`) and credit usage (`GetCreditsReport`). The tool reference now covers 20 tools. The OAuth URL and individual authentication remain unchanged.
+## Start using the plugin
 
-After uploading, confirm version 0.5.0 and that BuyerCaddy is connected. If an existing chat does not see the new tools, refresh or reconnect the connector and start a new chat.
+Ask Claude in natural language:
 
-Try these prompts:
+- "Find 10 companies recorded as using Salesforce products in BuyerCaddy."
+- "How many BuyerCaddy credits do I have left?"
+- "Show my BuyerCaddy credit usage for September 2026 by API method."
 
-- "How many credits do I have left?"
-- "Show my credit usage for September 2026."
-- "Which API methods have used my credits over all time?"
+Usage reports update hourly. Values represent credits, not money. See the [README](README.md#3-use-buyercaddy-in-a-chat) for more examples.
 
-The report updates hourly. Values represent credits, not a monetary balance. An error or a missing field must not be treated as zero.
+## Update an existing installation
+
+1. From a clean local checkout, run `git pull --ff-only` and then `./scripts/package.ps1`.
+2. Upload the newly generated ZIP through the same Plugins interface and follow any update prompt.
+3. Check the installed version against the plugin manifest and confirm BuyerCaddy is connected.
+4. If the chat still shows an old tool list, refresh or reconnect the connector and start a new chat.
+
+Version 0.5.0 adds the credits skill and a reference snapshot of 20 tools. The OAuth endpoint is unchanged. GitHub updates are not automatically applied to an uploaded plugin.
+
+For missing tools, sign-in errors or ZIP problems, see [Troubleshooting](README.md#troubleshooting).
