@@ -1,6 +1,6 @@
 # Install BuyerCaddy for Claude
 
-Current version: **0.5.0**. This guide covers Claude chat on the web and in Claude Desktop with the hosted OAuth connector.
+This guide covers Claude chat on the web and in Claude Desktop with the hosted OAuth connector. The current version is defined in the [plugin manifest](.claude-plugin/plugin.json).
 
 ## Before you start
 
@@ -11,7 +11,7 @@ Current version: **0.5.0**. This guide covers Claude chat on the web and in Clau
 ## Install and authorize
 
 1. In Claude, open **Customize > Plugins > Add > Upload plugin**.
-2. Upload `dist/buyercaddy-claude-oauth-0.5.0.zip`.
+2. Upload `dist/buyercaddy-claude-plugin.zip`.
 3. Open the installed **BuyerCaddy** plugin's **Connectors** tab and add or connect BuyerCaddy.
 4. In the **Connect to BuyerCaddy MCP** form, enter your own API key and select **Connect**.
 5. Return to Claude and confirm that BuyerCaddy is connected.
@@ -39,11 +39,11 @@ Usage reports update hourly. Values represent credits, not money. See the [READM
 
 ## Update an existing installation
 
-1. From a clean local checkout, run `git pull --ff-only` and then `./scripts/package.ps1`.
+1. From a clean local checkout, run `git pull --ff-only` and then `python scripts/package.py` (or `python3 scripts/package.py`).
 2. Upload the newly generated ZIP through the same Plugins interface and follow any update prompt.
 3. Check the installed version against the plugin manifest and confirm BuyerCaddy is connected.
 4. If the chat still shows an old tool list, refresh or reconnect the connector and start a new chat.
 
-Version 0.5.0 adds the credits skill and a reference snapshot of 20 tools. The OAuth endpoint is unchanged. GitHub updates are not automatically applied to an uploaded plugin.
+The ZIP filename stays the same across releases; check the manifest for its version. GitHub updates are not automatically applied to an uploaded plugin.
 
 For missing tools, sign-in errors or ZIP problems, see [Troubleshooting](README.md#troubleshooting).
