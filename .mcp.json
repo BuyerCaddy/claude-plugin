@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "buyercaddy": {
+      "type": "http",
+      "url": "https://buyercaddy-oauth-gateway-972736928837.us-central1.run.app/mcp"
+    }
+  }
+}
