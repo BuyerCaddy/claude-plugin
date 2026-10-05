@@ -6,12 +6,12 @@ This guide covers Claude chat on the web and in Claude Desktop with the hosted O
 
 - Confirm your Claude account has access to Plugins and remote connectors. On Team or Enterprise, an organization Owner may need to add the connector first.
 - Have your own BuyerCaddy API key ready. If needed, [create a BuyerCaddy account](https://buyercaddy.com/sign-up/?plan=claude).
-- Build the installation ZIP using the [README build instructions](README.md#1-build-the-installation-zip). No local server or Node.js is needed.
+- [Download the ready-to-install ZIP](https://github.com/BuyerCaddy/claude-plugin/releases/latest/download/buyercaddy-claude-plugin.zip). No build tools are required. Alternatively, [build from source with Python or PowerShell](README.md#build-from-source-optional).
 
 ## Install and authorize
 
 1. In Claude, open **Customize > Plugins > Add > Upload plugin**.
-2. Upload `dist/buyercaddy-claude-plugin.zip`.
+2. Upload the downloaded `buyercaddy-claude-plugin.zip`, or the copy in `dist/` if you built it yourself. Use the release asset, not GitHub's automatic **Source code** archive.
 3. Open the installed **BuyerCaddy** plugin's **Connectors** tab and add or connect BuyerCaddy.
 4. In the **Connect to BuyerCaddy MCP** form, enter your own API key and select **Connect**.
 5. Return to Claude and confirm that BuyerCaddy is connected.
@@ -39,8 +39,8 @@ Usage reports update hourly. Values represent credits, not money. See the [READM
 
 ## Update an existing installation
 
-1. From a clean local checkout, run `git pull --ff-only` and then `python scripts/package.py` (or `python3 scripts/package.py`).
-2. Upload the newly generated ZIP through the same Plugins interface and follow any update prompt.
+1. Download the ZIP from the [latest release](https://github.com/BuyerCaddy/claude-plugin/releases/latest). If building from source instead, run `git pull --ff-only` from a clean checkout and use either builder in the README.
+2. Upload the new ZIP through the same Plugins interface and follow any update prompt.
 3. Check the installed version against the plugin manifest and confirm BuyerCaddy is connected.
 4. If the chat still shows an old tool list, refresh or reconnect the connector and start a new chat.
 
