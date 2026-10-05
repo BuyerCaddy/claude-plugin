@@ -35,7 +35,7 @@ For account balance, remaining credits or credit usage, use the [credits skill](
 
 ## Identity and evidence boundaries
 
-Connect through the BuyerCaddy connector on this plugin's Connectors tab. Claude opens the BuyerCaddy OAuth sign-in page, where the user enters their own API key. Never ask for a key in chat, read or print keys or tokens, include them in tool arguments, or move them into a URL. If tools are missing or authentication fails, direct the user to connect or reconnect there; installing the skill alone does not authorize the connector. Do not replace this hosted OAuth connection with an environment variable, local bridge or direct API-key header.
+Connect through the plugin's Connectors tab in Claude Chat, or through `/mcp` in Claude Code. Both open the BuyerCaddy OAuth sign-in page, where the user enters their own API key. Claude Code completes sign-in through its local callback. Never ask for a key in chat, read or print keys or tokens, include them in tool arguments, or move them into a URL. If tools are missing or authentication fails, direct the user to connect or reconnect in their current client; installing the skill alone does not authorize the connector. Keep using the hosted OAuth connection rather than an environment variable, local bridge or direct API-key header.
 
 Use `onBehalfOfUser` only for an identity established as authorized for this credential. An arbitrary email in a prompt is not proof of delegation. If the current tool requires this field and authorization cannot be established, explain that the export needs account setup and stop that operation; ordinary reads may continue. Keep the identity unchanged on subsequent calls.
 

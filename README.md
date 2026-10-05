@@ -8,11 +8,11 @@ The plugin includes two skills, **research** and **credits**, and a remote MCP c
 
 ## Requirements
 
-- A Claude account with access to **Customize > Plugins** and remote connectors. Organization policies may require an Owner to enable the connector.
+- For Claude Chat: an account with access to **Customize > Plugins** and remote connectors. Organization policies may require an Owner to enable the connector. For Claude Code: an installed and signed-in Claude Code CLI.
 - Your own BuyerCaddy API key, entered on the BuyerCaddy connection page. If needed, [create a BuyerCaddy account](https://buyercaddy.com/sign-up/?plan=claude).
 - Only if building from source: Git and either Python 3.9+ or PowerShell (Windows PowerShell 5.1 or PowerShell 7+). Choose either builder; you do not need both.
 
-This release is for Claude chat on the web and in Claude Desktop. The current gateway does not support local Claude Code OAuth callbacks. No local server or Node.js installation is needed.
+The same plugin supports Claude Chat on the web and in Claude Desktop, and Claude Code. Both use the hosted BuyerCaddy MCP service and browser-based OAuth. Claude Code briefly listens on a local callback port to finish sign-in; no local BuyerCaddy server is needed.
 
 ## 1. Get the installation ZIP
 
@@ -59,6 +59,8 @@ Upload this generated ZIP to Claude. Its root contains `.claude-plugin/plugin.js
 
 ## 2. Install and connect
 
+### Claude Chat (web and Desktop)
+
 1. In Claude, open **Customize > Plugins > Add > Upload plugin**.
 2. Select the downloaded `buyercaddy-claude-plugin.zip`, or the copy in `dist/` if you built it yourself.
 3. Open the installed **BuyerCaddy** plugin's **Connectors** tab and add or connect BuyerCaddy.
@@ -70,6 +72,23 @@ On Team and Enterprise, an organization Owner may need to add the connector befo
 Enter your API key only on the connection page. Do not paste it into a chat or edit it into the plugin files. You do not need an OAuth Client ID or Client Secret.
 
 See [INSTALL.md](INSTALL.md) for installation and update steps. The upload and connector flow follows [Anthropic's plugin documentation](https://claude.com/docs/plugins/build).
+
+### Claude Code
+
+Extract the release ZIP into a folder, or clone this repository. From your working project, start Claude Code with the path to that plugin folder:
+
+```sh
+claude --plugin-dir "/path/to/claude-plugin"
+```
+
+Replace the path with your actual extracted or cloned folder. It must contain `.claude-plugin/plugin.json`. This loads the plugin for that session; use the flag again in future sessions.
+
+1. Run `/mcp` inside Claude Code, select the BuyerCaddy server supplied by the plugin, and choose to authenticate.
+2. Complete sign-in in your browser using your own BuyerCaddy API key.
+3. Let the browser return to Claude Code's local callback, then confirm the server is connected in `/mcp`.
+4. Ask: **Find the Salesforce vendor using BuyerCaddy.**
+
+The skills are also available as `/buyercaddy:research` and `/buyercaddy:credits`. Use the plugin's MCP connection rather than adding a duplicate with `claude mcp add`. Run Claude Code from your working project rather than the plugin repository to avoid loading its `.mcp.json` twice. See [Claude Code's MCP documentation](https://code.claude.com/docs/en/mcp#authenticate-with-remote-mcp-servers) for the browser sign-in flow.
 
 ## 3. Use BuyerCaddy in a chat
 
@@ -95,10 +114,11 @@ Credit usage reports update hourly, so recent activity may be missing. Use the b
 | Python is not found or opens the Microsoft Store | Download the ready-made ZIP, use the PowerShell builder, or install Python 3.9+ and reopen the terminal. |
 | Plugins or connector setup is unavailable | Check your Claude account's available features and organization policy; ask your organization Owner if applicable. |
 | ZIP upload reports a missing manifest | Use the release asset or a ZIP produced by either builder; both include the hidden manifest in the correct location. |
-| The plugin is installed but tools are missing | Open its Connectors tab, connect BuyerCaddy, then start a new chat. |
+| The plugin is installed but tools are missing | In Claude Chat, connect BuyerCaddy on its Connectors tab and start a new chat. In Claude Code, authenticate the plugin's server through `/mcp`. |
+| Claude Code cannot finish the browser redirect | Keep the originating Claude Code session open. The browser must reach the callback on that computer. For SSH or remote sessions, follow Claude Code's callback-paste instructions if offered. |
 | Sign-in fails or the connector is unauthorized | Reconnect through the BuyerCaddy form with your own valid key. |
 | An old BuyerCaddy connection is still selected | Use the OAuth gateway URL below. The older direct mcp.salescaddy.ai connection does not use this sign-in flow. |
-| Tools remain missing after an update | Refresh or reconnect BuyerCaddy and start a new chat. |
+| Tools remain missing after an update | Refresh or reconnect BuyerCaddy and start a new chat; restart Claude Code with the updated plugin folder. |
 | Credit usage does not include recent activity | Allow for the report's hourly refresh. |
 
 See the [troubleshooting reference](skills/research/references/troubleshooting.md) for tool errors and pagination limits.
