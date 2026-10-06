@@ -162,3 +162,7 @@ To publish a new version, update `.claude-plugin/plugin.json`, commit and push t
 ## License
 
 See [LICENSE](LICENSE).
+
+## Privacy policy
+
+https://buyercaddy.com/privacy-policy/
