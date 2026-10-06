@@ -4,7 +4,8 @@
   "description": "Research companies, software adoption, vendors and cohorts, and check your BuyerCaddy credit balance and usage. Connect with your own API key using browser sign-in.",
   "author": {
     "name": "BuyerCaddy",
-    "url": "https://buyercaddy.com"    
+    "url": "https://buyercaddy.com",
+    "icon": "https://admin.salescaddy.ai/assets/b.jpeg"
   },
   "homepage": "https://buyercaddy.com",
   "keywords": [
