@@ -96,9 +96,9 @@ Ask in natural language and name BuyerCaddy when you want Claude to use its data
 
 | Task | Example prompt |
 | --- | --- |
-| First connection check | Find the Salesforce vendor using BuyerCaddy. |
+| First connection check | Show me a list of products by Snowflake. |
 | Company research | Use BuyerCaddy to summarize microsoft.com and identify its recorded software products. |
-| Customer discovery | Find 10 companies recorded as using Salesforce products in BuyerCaddy. Show their names and domains. |
+| Customer discovery | Find customers of DStabricks. |
 | Technology lookup | Use BuyerCaddy to check whether microsoft.com is recorded as using Slack. |
 | Remaining credits | How many BuyerCaddy credits do I have left? |
 | Usage by API method | Show my BuyerCaddy credit usage for September 2026, grouped by API method. |
