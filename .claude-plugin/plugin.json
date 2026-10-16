@@ -1,6 +1,7 @@
 {
   "name": "buyercaddy",
-  "version": "0.6.0",
+  "displayName":"BuyerCaddy",
+  "version": "0.6.1",
   "description": "Research companies, software adoption, vendors and cohorts, and check your BuyerCaddy credit balance and usage. Connect with your own API key using browser sign-in.",
   "author": {
     "name": "BuyerCaddy",
