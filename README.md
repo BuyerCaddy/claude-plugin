@@ -2,7 +2,7 @@
 
 # BuyerCaddy for Claude
 
-Research companies, software products, vendors, customers and technology adoption in Claude. Check your BuyerCaddy credit balance and usage in the same conversation.
+Research companies, software products, vendors, customers and technology trends in Claude. Monitor over 171,000 products across 2,300+ categories and 30MM companies to see what software and hardware companies currently use.
 
 The plugin includes two skills, **research** and **credits**, and a remote MCP connector. Each user connects through OAuth. The plugin contains no API key or client secret. The current version is defined in the [plugin manifest](.claude-plugin/plugin.json).
 
