@@ -1,14 +1,14 @@
 {
   "name": "buyercaddy",
-  "displayName":"BuyerCaddy",
-  "version": "0.6.1",
+  "displayName": "BuyerCaddy",
+  "version": "0.6.2",
   "description": "Research companies, software adoption, vendors and cohorts, and check your BuyerCaddy credit balance and usage. Connect with your own API key using browser sign-in.",
   "author": {
     "name": "BuyerCaddy",
-    "url": "https://buyercaddy.com",
-    "icon": "https://admin.salescaddy.ai/assets/b.jpeg"
+    "url": "https://buyercaddy.com"
   },
   "homepage": "https://buyercaddy.com",
+  "icon": "./.claude-plugin/icon.png",
   "privacyPolicyUrl": "https://buyercaddy.com/privacy-policy/",
   "keywords": [
     "buyercaddy",
